@@ -1,0 +1,11 @@
+1. Return all data indead of 10 records:
+Method 1: use 'size' in query
+
+Method 2: scroll (Python)
+  res = es.search(index=IndexName, doc_type="JobPosting",body={"size": 100, "query": {"multi_match": {"query": keywords, "fields": []}}}, scroll='1m')
+  total = res['hits']['total']
+  count=math.ceil(total/50)
+  print(count)
+    ### For the next 100 records##
+  scroll = res['_scroll_id']
+  res2 = es.scroll(scroll_id=scroll, scroll='1m')
