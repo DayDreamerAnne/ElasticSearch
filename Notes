@@ -1,0 +1,8 @@
+Important Queries
+1. match
+2. match_all
+3. multi_match
+4. term
+5. terms
+6. range
+7.exists
